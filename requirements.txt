@@ -1,0 +1,6 @@
+chromadb==0.5.5
+sentence-transformers==3.0.1
+pymupdf>=1.26,<1.27
+rich==13.7.1
+ollama==0.3.3
+pyyaml==6.0.2

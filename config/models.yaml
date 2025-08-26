@@ -1,0 +1,32 @@
+defaults:
+  num_ctx: 32768
+  temperature: 0.2
+  top_p: 0.9
+  num_predict: 2048
+
+presets:
+  coach:
+    model: qwen2.5:14b-instruct
+    options:
+      num_ctx: 32768
+      temperature: 0.2
+      top_p: 0.9
+      num_predict: 2048
+
+  sparring:
+    model: qwen2.5:32b-instruct
+    options:
+      num_ctx: 32768
+      temperature: 0.2
+      top_p: 0.9
+      num_predict: 2048
+
+  reviewer:
+    model: llama3.1:70b-instruct-q4_0
+    options:
+      num_ctx: 16384
+      temperature: 0.2
+      top_p: 0.9
+      num_predict: 1536
+
+
