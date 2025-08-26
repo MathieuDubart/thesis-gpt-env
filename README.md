@@ -28,6 +28,7 @@ source .venv/bin/activate
 # Installer les dépendances
 pip install --upgrade pip setuptools wheel
 pip install -r requirements.txt
+```
 
 ## Prompts
 
@@ -40,15 +41,15 @@ make ingest
 
 → Parcourt ./data/ (PDF, .md, .txt), crée une base Chroma pour le RAG.
 
-Mode Coach (rapide, cadrage)
-make coach q="Propose-moi 3 problématiques possibles sur l’usage de l’IA générative"
+**Mode Coach (rapide, cadrage)**
+`make coach q="Propose-moi 3 problématiques possibles sur l’usage de l’IA générative"`
 
 
 Utilise Qwen2.5 14B (ou Llama3.1 13B selon config).
 
 Objectif : clarifier, proposer un plan, découper le travail.
 
-Mode Sparring (rigueur, alternatives)
+**Mode Sparring (rigueur, alternatives)**
 make sparring q="Voici ma problématique provisoire : … Propose 2 alternatives et critique-la"
 
 
@@ -56,7 +57,7 @@ Utilise Qwen2.5 32B.
 
 Objectif : stress-test de la problématique, proposer alternatives et hypothèses.
 
-Mode Reviewer (audit final)
+**Mode Reviewer (audit final)**
 make reviewer q="Évalue mon protocole méthodologique : entretiens + analyse comparative"
 
 
@@ -64,13 +65,16 @@ Utilise Llama3.1 70B (Q2_K).
 
 Objectif : audit type jury (méthodo, biais, éthique, RGPD).
 
-Mode Ask (choisir explicitement un modèle)
+**Mode Ask (choisir explicitement un modèle)**
 make ask model=qwen2.5:32b-instruct q="Comment formuler une hypothèse testable à partir de X ?"
 
 
 Tu forces le modèle.
 
 Exemple : llama3.1:13b-instruct, qwen2.5:14b-instruct, etc.
+
+**Trouver des sources**
+make librarian q="RAG privé pour PME" > outputs/librarian/RAG_PME_$(date +%F).md
 
 ## 🛠 Workflow conseillé
 
@@ -95,3 +99,5 @@ Reviewer → audit final avant rédaction.
 ## 🔍 Citations obligatoires
 - Le prompt exige de **citer** `[Source: chemin p.X]` pour tout point fondé sur le CONTEXTE RAG.
 - En l’absence de preuve, marquer **[à vérifier]**.
+
+

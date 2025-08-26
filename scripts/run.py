@@ -2,6 +2,7 @@
 import os, argparse, sys, json, time
 from datetime import datetime
 from rich import print
+import subprocess, shlex
 
 # === Chroma (RAG) ===
 from chromadb import PersistentClient
@@ -227,6 +228,10 @@ En respectant strictement les contraintes ci-dessus:
     md_path = export_markdown(preset_or_model, args.question, answer)
     print(f"\n[green]📝 Export Markdown:[/green] {md_path}")
 
+    subprocess.run(shlex.split(
+        f"python scripts/journal.py --prompt {json.dumps(user_question)} --answer {json.dumps(answer)}"
+    ))
+    
     # Mémoire locale courte (Point 4)
     save_memory_entry(preset_or_model, args.question, answer)
 
